@@ -2,7 +2,6 @@
 layout: post
 title:  "Annoying Firewall Logging"
 date:   2020-07-15 11:08:20 +0200
-<!--categories: 2020-->
 ---
 
 Hej Hej!
@@ -22,6 +21,6 @@ Just add `alias dmesg="dmesg | sed '/UFW/d'"` into the file. And try to type `dm
 
 Okay then. Hopefully those steps works for you and you get a better feeling, I mean you will not be annoyed by ufw logging anymore 🙂
 
-Cheers, \
+Cheers,\
 Rahmanu
 
