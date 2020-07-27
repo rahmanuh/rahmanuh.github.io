@@ -24,7 +24,7 @@ exploring GitHub to look for a software which can be used frequently. Then I fou
 I am quite often use this software since I installed. In addition, I usually forget
 how to use `ln` :p
 
-[This](https://github.com/tldr-pages/tldr/pull/4211)is my first Pull Request (PR), to the repo above.
+[This](https://github.com/tldr-pages/tldr/pull/4211) is my first Pull Request (PR), to the repo above.
 It still needs one more reviewed, but I am already excited :D
 
 Well, I hope this little step will make me keep contributing to open source software.
