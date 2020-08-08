@@ -9,7 +9,7 @@ Hello,
 I just created a simple pregnancy logger yesterday. This is my first Nodejs app ever.
 Well, I created this because I want to log my wife's weight and abdominal circumference
 (I do not know the best idiom for "lingkar perut").
-You can read the pregnancy story [here](http://83.226.101.206:7000/2020/05/octa-is-pregnant/).
+You can read the pregnancy story [here](http://pasdirumah.ddns.net:7000/2020/05/octa-is-pregnant/).
 This app is served by my Raspberry Pi at home. Anyway, let me show you my little app.
 
 ```javascript
