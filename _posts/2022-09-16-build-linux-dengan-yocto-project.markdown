@@ -124,8 +124,8 @@ Edit variabel-variabel berikut:
 ```
 MACHINE ??= "qemuarm" 
 
-DL_DIR = "~/yocto-share/downloads"
-SSTATE_DIR = "~/yocto-share/sstate-cache"
+DL_DIR = "${TOPDIR}/../../yocto-share/downloads"
+SSTATE_DIR = "${TOPDIR}/../../yocto-share/sstate-cache"
 ```
 
 Untuk kesempatan ini kita akan menge-build untuk qemuarm (`MACHINE ??= "qemuarm"`) dengan tujuan mensimulasikan platform dengan prosesor Arm.
@@ -135,6 +135,8 @@ Kembali mengenai local.conf, `DL_DIR` dan `SSTATE_DIR` adalah folder untuk menyi
 Folder `sstate-cache` digunakan oleh `bitbake` Yocto Project untuk menyimpan status-status yang berhubungan dengan compilation, linking, dan lain-lain. 
 `bitbake` adalah script Python yang disediakan Yocto Project sebagai `make`-nya Yocto Project. Kedua folder tersebut dapat di-share jika di komputer kita,
 kita menge-build Linux image untuk berbagai versi Yocto ataupun berbagai platform/cpu. Selain menghemat storage, waktu menge-build juga dapat dipercepat.
+
+Sebagai tambahan catatan, variabel `TOPDIR` adalah build directory. Contoh `DL_DIR` di atas menuju ke folder yocto-share yang berada dua level di atas build directory.
 
 Sekarang kita build Linux image paling minimal yang cuma bisa booting. Daftar image yang bisa di-build ada di [sini](https://docs.yoctoproject.org/ref-manual/images.html?highlight=image)
 ```
