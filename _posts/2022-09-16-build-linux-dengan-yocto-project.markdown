@@ -15,7 +15,7 @@ kami tetap menggunakan beberapa istilah dalam Bahasa Inggris :)
 # Pengenalan singkat Yocto Project
 
 Kalau dari website resminya, Yocto Project bukan sebuah Linux distro, tetapi bisa digunakan sebagai salah satu cara untuk membuat distro.
-Maksudnya adalah, Yocto Project bukan seperti Ubuntu, Fedora, atau Arch. Dengan Yocto Project, walaupun kita bisa ambisius membuat
+Maksudnya adalah, Yocto Project bukan distro seperti Ubuntu, Fedora, atau Arch. Dengan Yocto Project, walaupun kita bisa ambisius membuat
 sebuah distro seperti Ubuntu dan lainnya. Namun, biasanya Yocto Project digunakan untuk membuat distro sendiri untuk
 embedded system pada use case yang spesifik. Sebagai contoh, daripada menggunakan Raspbian yang sangat generic
 untuk sebuah Raspberry Pi yang hanya bertugas mengukur suhu ruangan, dengan Yocto Project kita bisa menge-build 
@@ -36,7 +36,7 @@ Ya, menge-build sebuah distro Linux, bukan cuma menge-build Linux kernel dan pac
 tetapi juga proses menge-build-nya ada men-download source code package yang mau di-build. Makanya butuh storage besar.
 
 # Persiapan build komputer
-Pastikan kita sudah meng-install semua developmen package yang diperlukan untuk menge-build Yocto Project. Yocto Project
+Pastikan kita sudah meng-install semua development package yang diperlukan untuk menge-buiid sebuah Linux system. Yocto Project
 menyediakan panduan di [sini](https://docs.yoctoproject.org/ref-manual/system-requirements.html#required-packages-for-the-build-host).
 Sebagai contoh, komputer saya Fedora 36, tinggal jalankan command berikut:
 
@@ -72,7 +72,7 @@ $ git checkout kirkstone
 
 Untuk memulai menge-build, kita pergi dulu ke folder `wortel`. Lalu load open-embedded build environment agar shell kita saat ini mengenal 
 command-command open-embedded seperti `bitbake`, `bitbake-layers`, dan lainnya. Sangat disarankan untuk menggunakan `bash`.
-Bukan berarti shell yang lain seperti `zsh` tidak bisa, tapi dulu saya pernah punya masalah dengan `zsh` kita menge-build Yocto.
+Bukan berarti shell yang lain seperti `zsh` tidak bisa, tapi dulu saya pernah punya masalah dengan `zsh` kita menge-build Poky.
 ```
 $ cd wortel
 $ source sources/poky/oe-init-build-env build
@@ -132,7 +132,7 @@ Untuk kesempatan ini kita akan menge-build untuk qemuarm (`MACHINE ??= "qemuarm"
 Di kesempatan yang lain kita akan coba juga menjalankan image yang sudah di-build di Raspberry Pi.
 
 Kembali mengenai local.conf, `DL_DIR` dan `SSTATE_DIR` adalah folder untuk menyimpan semua source code yang di download dan menyimpan `sstate-cache`. 
-Folder `sstate-cache` digunakan oleh `bitbake` Yocto Project untuk menyimpan status-status yang berhubungan dengan compilation, linking, dan lain-lain. 
+Folder `sstate-cache` digunakan oleh `bitbake` untuk menyimpan status-status yang berhubungan dengan compilation, linking, dan lain-lain. 
 `bitbake` adalah script Python yang disediakan Yocto Project sebagai `make`-nya Yocto Project. Kedua folder tersebut dapat di-share jika di komputer kita,
 kita menge-build Linux image untuk berbagai versi Yocto ataupun berbagai platform/cpu. Selain menghemat storage, waktu menge-build juga dapat dipercepat.
 
@@ -177,13 +177,13 @@ VIRTUAL-RUNTIME_initscripts = ""
 EXTRA_IMAGE_FEATURES += " ssh-server-dropbear"
 ```
 
-Sebagai default, Yocto Project menggunakan `sysvinit`. Namun untuk kesempatan ini kita akan gantikan `sysvinit` dengan `systemd`. Jika `systemd`
+Sebagai default, Poky menggunakan `sysvinit`. Namun untuk kesempatan ini kita akan gantikan `sysvinit` dengan `systemd`. Jika `systemd`
 gagal kita akan fallback ke `sysvinit`. Dengan local.conf baru, jalankan `bitbake core-image-minimal` lagi. Saya membutuhkan 48 menit. Sekali lagi,
 siapkan cemilan atau bisa juga ditunggu sambil menyetrika baju. kalau sudah selesai, tes lagi pakai qemu `runqemu qemuarm`.
 
 Booting-nya jadi agak lebih lama karena systemd punya banyak service yang harus dijalankan. Sekarang kita coba ssh ke dalam qemuarm.
 Biasanya alamat IP-nya 192.168.7.2, tapi untuk lebih yakin bisa dicek dulu menggunakan `ip a`. Untuk kepentingan development,
-Yocto sudah mengkonfigurasikan ssh ke root tanpa password. Lain kali akan kita bahas juga soal ini. Ada fitur mengenai hal ini.
+Poky sudah mengkonfigurasikan ssh ke root tanpa password. Lain kali akan kita bahas juga soal ini. Ada fitur mengenai hal ini.
 
 Output ssh ke qemuarm:
 ```
