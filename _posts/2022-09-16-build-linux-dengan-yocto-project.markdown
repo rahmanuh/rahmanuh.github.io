@@ -2,7 +2,7 @@
 layout: post
 title:  "Build Linux dengan Yocto Project"
 date:   2022-09-16 03:07:32 +0000
-categories: jekyll update
+categories: tuorial
 ---
 
 Halo di tulisan ini, dan (mungkin) blog ini, saya ingin berbagi mengenai Linux. Sekaligus
